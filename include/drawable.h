@@ -1,6 +1,6 @@
-/*      
+/*
    Tsunami for KallistiOS ##version##
-        
+
    drawable.h
 
    (c)2002 Dan Potter
@@ -33,7 +33,7 @@ public:
 	void animRemoveAll();
 
 	/// Checks to see if this object is still not finished (for screen
-	/// closing type stuff). Returns true if this object and all 
+	/// closing type stuff). Returns true if this object and all
 	/// sub-objects are finished.
 	bool isFinished();
 
@@ -80,7 +80,7 @@ public:
 	/// stored as the w value.
 	void setRotate(const Vector & r) { m_rotate = r; }
 
-	/// Get the rotation of this drawable; the angle is 
+	/// Get the rotation of this drawable; the angle is
 	/// stored as the w value.
 	const Vector & getRotate() const { return m_rotate; }
 
@@ -100,7 +100,7 @@ public:
 	void setAlpha(float a) { m_tint.a = a; }
 
 	/// Shortcut to get the alpha value of the tint
-	float getAlpha(float a) const { return m_tint.a; }
+	float getAlpha() const { return m_tint.a; }
 
 	/// Get the absolute tint value of this drawable (figuring prelative)
 	Color getColor() const;
