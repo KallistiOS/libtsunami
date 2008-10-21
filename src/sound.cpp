@@ -8,8 +8,6 @@
 
 #include <tsu/sound.h>
 
-CVSID("$Id: sound.cpp,v 1.3 2003/04/24 02:57:20 bardtx Exp $");
-
 int Sound::m_default_vol = 240;
 
 Sound::Sound(const char *fn) {

@@ -9,8 +9,6 @@
 #include <tsu/trigger.h>
 #include <tsu/animation.h>
 
-CVSID("$Id: trigger.cpp,v 1.1 2002/09/09 08:43:37 bardtx Exp $");
-
 Trigger::Trigger() {
 }
 

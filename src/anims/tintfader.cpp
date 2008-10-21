@@ -9,8 +9,6 @@
 #include <tsu/drawable.h>
 #include <tsu/anims/tintfader.h>
 
-CVSID("$Id: tintfader.cpp,v 1.1 2003/04/24 02:57:20 bardtx Exp $");
-
 TintFader::TintFader(const Color & fade_to, const Color & delta) {
 	m_fade_to = fade_to;
 	m_delta = delta;

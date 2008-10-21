@@ -59,6 +59,3 @@ things like CComPtr setup in the MS world (i.e. mixing of raw pointers and
 auto_ptrs, causing the programmer to have to defacto manually reference
 count anyway).
 
-
-CVS Id: $Id: readme.txt,v 1.1 2002/09/09 08:43:37 bardtx Exp $
-

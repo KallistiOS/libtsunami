@@ -9,8 +9,6 @@
 #include <tsu/anims/logxymover.h>
 #include <math.h>
 
-CVSID("$Id: logxymover.cpp,v 1.1 2002/09/09 08:43:37 bardtx Exp $");
-
 LogXYMover::LogXYMover(float dstx, float dsty) {
 	m_dstx = dstx;
 	m_dsty = dsty;

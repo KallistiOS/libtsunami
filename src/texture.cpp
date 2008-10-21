@@ -8,8 +8,6 @@
 
 #include <tsu/texture.h>
 
-CVSID("$Id: texture.cpp,v 1.3 2003/04/24 02:57:20 bardtx Exp $");
-
 Texture::Texture(const char *fn, bool use_alpha, bool yflip) {
 	m_txr = NULL;
 	if (!loadFromFile(fn, use_alpha, yflip))

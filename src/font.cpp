@@ -8,8 +8,6 @@
 
 #include <tsu/font.h>
 
-CVSID("$Id: font.cpp,v 1.3 2003/04/24 02:57:20 bardtx Exp $");
-
 Font::Font(const char *fn, int list) {
 	m_list = list;
 	m_font = NULL;

@@ -9,8 +9,6 @@
 #include <tsu/triggers/birth.h>
 #include <tsu/drawable.h>
 
-CVSID("$Id: death.cpp,v 1.1 2002/09/09 08:43:38 bardtx Exp $");
-
 Birth::Birth(Drawable * newDrawable, Drawable * target) {
 	m_newDrawable = newDrawable;
 	m_target = target;

@@ -9,8 +9,6 @@
 #include <plx/list.h>
 #include <tsu/drawables/label.h>
 
-CVSID("$Id: label.cpp,v 1.3 2003/04/24 02:57:21 bardtx Exp $");
-
 Label::Label(Font * fh, const char *text, int size, bool centered, bool smear) {
 	m_fh = fh;
 	m_text = text;

@@ -9,8 +9,6 @@
 #include <tsu/animation.h>
 #include <tsu/drawable.h>
 
-CVSID("$Id: animation.cpp,v 1.2 2003/04/24 02:57:20 bardtx Exp $");
-
 Animation::Animation() {
 }
 

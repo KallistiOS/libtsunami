@@ -9,8 +9,6 @@
 #include <tsu/triggers/death.h>
 #include <tsu/drawable.h>
 
-CVSID("$Id: death.cpp,v 1.1 2002/09/09 08:43:38 bardtx Exp $");
-
 Death::Death(Drawable * target) {
 	m_target = target;
 }

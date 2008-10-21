@@ -9,8 +9,6 @@
 #include <tsu/drawable.h>
 #include <tsu/anims/expxymover.h>
 
-CVSID("$Id: expxymover.cpp,v 1.1 2002/09/09 08:43:37 bardtx Exp $");
-
 ExpXYMover::ExpXYMover(float dx, float dy, float maxx, float maxy) {
 	m_dx = dx;
 	m_dy = dy;

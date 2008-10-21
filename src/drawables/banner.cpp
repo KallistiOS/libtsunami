@@ -8,8 +8,6 @@
 
 #include <tsu/drawables/banner.h>
 
-CVSID("$Id: banner.cpp,v 1.3 2003/04/24 02:57:20 bardtx Exp $");
-
 Banner::Banner(int list, Texture * texture) {
 	m_list = list;
 	m_texture = texture;
