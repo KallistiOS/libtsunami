@@ -5,7 +5,6 @@
 
    (c)2002 Dan Potter
 
-   $Id: font.h,v 1.3 2003/04/24 02:57:20 bardtx Exp $
 */
 
 #ifndef __TSUNAMI_FONT_H

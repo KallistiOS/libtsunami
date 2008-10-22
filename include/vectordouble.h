@@ -5,7 +5,6 @@
 
    Copyright (C)2002,2003,2004 Dan Potter
 
-   $Id: vector.h,v 1.2 2003/04/24 02:57:20 bardtx Exp $
 */
 
 #ifndef __TSUNAMI_VECTORDOUBLE_H

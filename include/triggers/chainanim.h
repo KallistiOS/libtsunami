@@ -5,7 +5,6 @@
 
    (c)2002 Dan Potter
 
-   $Id: chainanim.h,v 1.1 2002/09/09 08:43:37 bardtx Exp $
 */
 
 #ifndef __TSUNAMI_TRIG_CHAINANIM_H

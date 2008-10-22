@@ -5,7 +5,6 @@
 
    (c)2002 Dan Potter
 
-   $Id: trigger.h,v 1.1 2002/09/09 08:43:37 bardtx Exp $
 */
 
 #ifndef __TSUNAMI_TRIGGER_H

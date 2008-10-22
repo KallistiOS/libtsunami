@@ -5,7 +5,6 @@
 
    (c)2002 Dan Potter
 
-   $Id: label.h,v 1.2 2003/03/09 01:24:57 bardtx Exp $
 */
 
 #ifndef __TSUNAMI_DRW_LABEL_H

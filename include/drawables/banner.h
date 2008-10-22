@@ -5,7 +5,6 @@
 
    (c)2002 Dan Potter
 
-   $Id: banner.h,v 1.3 2003/04/24 02:57:20 bardtx Exp $
 */
 
 #ifndef __TSUNAMI_DRW_BANNER_H

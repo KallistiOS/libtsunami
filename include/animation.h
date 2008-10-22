@@ -5,7 +5,6 @@
 
    (c)2002 Dan Potter
 
-   $Id: animation.h,v 1.2 2003/04/24 02:57:20 bardtx Exp $
 */
 
 #ifndef __TSUNAMI_ANIMATION_H

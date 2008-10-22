@@ -5,7 +5,6 @@
 
    Copyright (C)2003,2004 Dan Potter
 
-   $Id: color.h,v 1.1 2003/04/24 02:57:20 bardtx Exp $
 */
 
 #ifndef __TSUNAMI_COLOR3_H
