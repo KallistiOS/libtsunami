@@ -6,7 +6,7 @@
    (c)2002 Dan Potter
 */
 
-#include <tsu/anims/logxymover.h>
+#include "anims/logxymover.h"
 #include <math.h>
 
 LogXYMover::LogXYMover(float dstx, float dsty) {

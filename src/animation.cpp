@@ -1,13 +1,13 @@
-/* 
+/*
    Tsunami for KallistiOS ##version##
-   
+
    animation.cpp
-   
+
    (c)2002 Dan Potter
 */
 
-#include <tsu/animation.h>
-#include <tsu/drawable.h>
+#include "animation.h"
+#include "drawable.h"
 
 Animation::Animation() {
 }

@@ -1,14 +1,14 @@
-/*      
+/*
    Tsunami for KallistiOS ##version##
-        
+
    vector.cpp
 
    Copyright (C)2004 Dan Potter
 */
 
-#include <tsu/vector.h>
-#include <tsu/vector3.h>
-#include <tsu/matrix.h>
+#include "vector.h"
+#include "vector3.h"
+#include "matrix.h"
 
 // Thanks to Iris3D for this algorithm (I'm too lazy to look it up ;)
 Vector Vector::operator*(const Matrix & mat) const {
@@ -33,4 +33,3 @@ Vector & Vector::operator=(const Vector3 & o) {
 	w = 0.0f;
 	return *this;
 }
-

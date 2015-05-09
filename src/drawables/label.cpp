@@ -1,13 +1,13 @@
 /*
    Tsunami for KallistiOS ##version##
-        
+
    label.cpp
 
    (c)2002 Dan Potter
 */
 
 #include <plx/list.h>
-#include <tsu/drawables/label.h>
+#include "drawables/label.h"
 
 Label::Label(Font * fh, const char *text, int size, bool centered, bool smear) {
 	m_fh = fh;
@@ -15,7 +15,7 @@ Label::Label(Font * fh, const char *text, int size, bool centered, bool smear) {
 	m_size = size;
 	m_centered = centered;
 	m_smear = smear;
-	
+
 }
 Label::~Label() {
 }
@@ -50,4 +50,3 @@ void Label::draw(int list) {
 			m_fh->draw(p.x, p.y, p.z, m_text);
 	}
 }
-

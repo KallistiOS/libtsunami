@@ -6,8 +6,8 @@
    (c)2002 Dan Potter
 */
 
-#include <tsu/drawable.h>
-#include <tsu/anims/expxymover.h>
+#include "drawable.h"
+#include "anims/expxymover.h"
 
 ExpXYMover::ExpXYMover(float dx, float dy, float maxx, float maxy) {
 	m_dx = dx;
@@ -20,7 +20,7 @@ ExpXYMover::~ExpXYMover() { }
 
 void ExpXYMover::nextFrame(Drawable *t) {
 	Vector p = t->getTranslate();
-	
+
 	bool xfin = m_dx < 0 ? (p.x <= m_maxx) : (p.x >= m_maxx);
 	bool yfin = m_dy < 0 ? (p.y <= m_maxy) : (p.y >= m_maxy);
 	if (xfin && yfin) {

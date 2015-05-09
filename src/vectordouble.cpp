@@ -1,4 +1,4 @@
-/*      
+/*
    Tsunami for KallistiOS ##version##
 
    vectordouble.cpp
@@ -6,9 +6,9 @@
    Copyright (C)2004 Dan Potter
 */
 
-#include <tsu/vectordouble.h>
-#include <tsu/vector.h>
-#include <tsu/matrixdouble.h>
+#include "vectordouble.h"
+#include "vector.h"
+#include "matrixdouble.h"
 
 VectorDouble::VectorDouble(const Vector & o) {
 	x = (double)o.x;

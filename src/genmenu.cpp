@@ -6,7 +6,7 @@
    Copyright (C)2003 Dan Potter
 */
 
-/* 
+/*
   This module implements a generic menu system. There are some pieces here
   that were more integrated into Feet of Fury which have been commented out
   for the moment until they can be more properly sorted out.
@@ -26,7 +26,7 @@
 
  */
 
-#include <tsu/genmenu.h>
+#include "genmenu.h"
 #include <plx/list.h>
 #include <kos/thread.h>
 #include <arch/timer.h>
@@ -38,7 +38,7 @@ GenericMenu::GenericMenu() {
 	m_bgmFn[0] = 0;
 	m_usebgm = false;
 	m_cachebgm = false;
-	
+
 	m_bg[0] = m_bg[1] = m_bg[2] = 0.0f;
 
 	m_exiting = false;
@@ -92,7 +92,7 @@ void GenericMenu::doMenu() {
 	// Did we get a quit-now request?
 	if (!m_exitSpeed)
 		return;
-	
+
 	// We should be faded out now -- do three more frames to finish
 	// clearing out the PVR buffered scenes.
 	m_exitCount = 0;
@@ -438,4 +438,3 @@ void GenericMenu::setAutoRepeat(GenericMenu::Event::KeyConstant key, bool enable
 	else
 		m_autoRep &= ~(1 << key);
 }
-

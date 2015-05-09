@@ -1,12 +1,12 @@
-/*      
+/*
    Tsunami for KallistiOS ##version##
-        
+
    sound.cpp
 
    (c)2002 Dan Potter
 */
 
-#include <tsu/sound.h>
+#include "sound.h"
 
 int Sound::m_default_vol = 240;
 
@@ -52,4 +52,3 @@ bool Sound::loadFromFile(const char *fn) {
 void Sound::setDefaultVolume(int vol) {
 	m_default_vol = vol;
 }
-        

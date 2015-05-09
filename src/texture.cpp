@@ -1,12 +1,12 @@
-/*      
+/*
    Tsunami for KallistiOS ##version##
-        
+
    texture.cpp
 
    (c)2002 Dan Potter
 */
 
-#include <tsu/texture.h>
+#include "texture.h"
 
 Texture::Texture(const char *fn, bool use_alpha, bool yflip) {
 	m_txr = NULL;
@@ -52,4 +52,3 @@ bool Texture::loadFromFile(const char *fn, bool use_alpha, bool flip) {
 	} else
 		return true;
 }
-

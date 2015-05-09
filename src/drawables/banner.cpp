@@ -1,17 +1,17 @@
 /*
    Tsunami for KallistiOS ##version##
-        
+
    banner.cpp
 
    (c)2002 Dan Potter
 */
 
-#include <tsu/drawables/banner.h>
+#include "drawables/banner.h"
 
 Banner::Banner(int list, Texture * texture) {
 	m_list = list;
 	m_texture = texture;
-		
+
 	m_u1 = m_v2 = 0.0f;
 	m_u2 = m_v4 = 0.0f;
 	m_u3 = m_v1 = 1.0f;
@@ -99,4 +99,3 @@ void Banner::draw(int list) {
 
 	Drawable::draw(list);
 }
-

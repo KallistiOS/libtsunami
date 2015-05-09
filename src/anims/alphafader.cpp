@@ -6,8 +6,8 @@
    (c)2002 Dan Potter
 */
 
-#include <tsu/drawable.h>
-#include <tsu/anims/alphafader.h>
+#include "drawable.h"
+#include "anims/alphafader.h"
 
 AlphaFader::AlphaFader(float fade_to, float delta) {
 	m_fade_to = fade_to;

@@ -1,13 +1,13 @@
-/* 
+/*
    Tsunami for KallistiOS ##version##
-   
+
    death.cpp
-   
+
    (c)2002 Dan Potter
 */
 
-#include <tsu/triggers/death.h>
-#include <tsu/drawable.h>
+#include "triggers/death.h"
+#include "drawable.h"
 
 Death::Death(Drawable * target) {
 	m_target = target;
@@ -26,4 +26,3 @@ void Death::trigger(Drawable *t, Animation *a) {
 	// Go the way of the dodo ourselves
 	Trigger::trigger(t, a);
 }
-

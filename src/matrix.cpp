@@ -1,13 +1,13 @@
-/*      
+/*
    Tsunami for KallistiOS ##version##
-        
+
    matrix.cpp
 
    Copyright (C)2001,2002,2003 Dan Potter
    Copyright (C)2002 Benoit Miller and Paul Boese
 */
 
-#include <tsu/matrix.h>
+#include "matrix.h"
 #include <string.h>
 
 /* Several pieces of this file were pulled from libparallax, which was
@@ -56,7 +56,7 @@ void Matrix::rotate(float angle, const Vector & axis) {
 
 	// Normalize the rotation vector
 	vx /= mag;
-	vy /= mag;  
+	vy /= mag;
 	vz /= mag;
 
 	xx = vx * vx;

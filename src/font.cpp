@@ -1,12 +1,12 @@
-/*      
+/*
    Tsunami for KallistiOS ##version##
-        
+
    font.cpp
 
    (c)2002 Dan Potter
 */
 
-#include <tsu/font.h>
+#include "font.h"
 
 Font::Font(const char *fn, int list) {
 	m_list = list;
@@ -153,7 +153,7 @@ void Font::smearDraw(float x, float y, float z, const char *text) {
 	plx_fcxt_draw(m_cxt, text);
 	plx_fcxt_setpos(m_cxt, x + 0, y + 0, z - 1.0f);
 	plx_fcxt_draw(m_cxt, text);
-		
+
 	plx_fcxt_end(m_cxt);
 	plx_fcxt_setcolor4f(m_cxt, m_a, m_r, m_g, m_b);
 }

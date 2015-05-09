@@ -1,14 +1,14 @@
-/*      
+/*
    Tsunami for KallistiOS ##version##
-        
+
    matrixdouble.cpp
 
    Copyright (C)2001,2002,2003 Dan Potter
    Copyright (C)2002 Benoit Miller and Paul Boese
 */
 
-#include <tsu/matrixdouble.h>
-#include <tsu/matrix.h>
+#include "matrixdouble.h"
+#include "matrix.h"
 #include <string.h>
 
 /* Several pieces of this file were pulled from libparallax, which was
@@ -59,7 +59,7 @@ void MatrixDouble::rotate(double angle, const VectorDouble & axis) {
 
 	// Normalize the rotation vector
 	vx /= mag;
-	vy /= mag;  
+	vy /= mag;
 	vz /= mag;
 
 	xx = vx * vx;

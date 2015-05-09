@@ -1,12 +1,12 @@
-/* 
+/*
    Tsunami for KallistiOS ##version##
 
    drawable.cpp
-   
+
    (c)2002 Dan Potter
 */
 
-#include <tsu/drawable.h>
+#include "drawable.h"
 #include <plx/matrix.h>
 
 // Constructor / Destructor
@@ -20,13 +20,13 @@ Drawable::Drawable() {
 	m_r_prelative = true;
 	m_s_prelative = true;
 	m_a_prelative = true;
-	
+
 	m_finished = false;
 	m_subs_finished = false;
 
 	m_parent = NULL;
 }
-	
+
 Drawable::~Drawable() {
 }
 
@@ -177,4 +177,3 @@ void Drawable::pushTransformMatrix() const {
 void Drawable::popTransformMatrix() const {
 	plx_mat3d_pop();
 }
-

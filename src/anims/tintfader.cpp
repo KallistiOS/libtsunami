@@ -6,8 +6,8 @@
    Copyright (C)2003 Dan Potter
 */
 
-#include <tsu/drawable.h>
-#include <tsu/anims/tintfader.h>
+#include "drawable.h"
+#include "anims/tintfader.h"
 
 TintFader::TintFader(const Color & fade_to, const Color & delta) {
 	m_fade_to = fade_to;
@@ -19,7 +19,7 @@ TintFader::~TintFader() { }
 void TintFader::nextFrame(Drawable *t) {
 	Color c = t->getTint();
 	c += m_delta;
-	
+
 	if (clamp(c)) {
 		c = m_fade_to;
 		complete(t);
