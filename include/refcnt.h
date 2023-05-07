@@ -34,35 +34,19 @@ public:
 
 	// Add a reference to the object
 	virtual void ref() {
-#ifndef NDEBUG
-		if (this == NULL) {
-			dbglog(DBG_WARNING, "RefCnt::ref() about to assert for caller=%08lx\n",
-				arch_get_ret_addr());
-		}
-		assert( this != NULL );
-#endif
 		m_refcnt++;
 	}
 
 	// Remove a reference to the object; if we hit
 	// zero then delete it
 	virtual void unref() {
-#ifndef NDEBUG
-		if (this == NULL) {
-			dbglog(DBG_WARNING, "RefCnt::unref() about to assert for caller=%08lx\n",
-				arch_get_ret_addr());
-		}
-		assert( this != NULL );
-#endif
-
 		m_refcnt--;
 		if (m_refcnt < 0) {
 			dbglog(DBG_WARNING, "RefCnt::unref() refcount underflow! this=%08lx, caller=%08lx\n",
 				(uint32)this, arch_get_ret_addr());
 			assert( false );
-		} else {
-			if (m_refcnt == 0)
-				delete this;
+		} else if (m_refcnt == 0) {
+			delete this;
 		}
 	}
 
