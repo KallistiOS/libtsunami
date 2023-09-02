@@ -10,13 +10,11 @@
 #ifndef __TSUNAMI_SOUND_H
 #define __TSUNAMI_SOUND_H
 
-#include "refcnt.h"
-
 #include <dc/sound/sfxmgr.h>
 
 #include <filesystem>
 
-class Sound : virtual public RefCnt {
+class Sound {
 public:
 	Sound(const std::filesystem::path &fn);
 	Sound();

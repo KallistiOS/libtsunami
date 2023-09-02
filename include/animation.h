@@ -17,7 +17,7 @@ class Drawable;
 #include <memory>
 #include <deque>
 
-class Animation : virtual public RefCnt {
+class Animation {
 public:
 	/// Constructor / Destructor
 	Animation();

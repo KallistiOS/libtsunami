@@ -11,13 +11,12 @@
 #define __TSUNAMI_FONT_H
 
 #include <plx/font.h>
-#include "refcnt.h"
 #include "vector.h"
 
 #include <filesystem>
 #include <string>
 
-class Font : virtual public RefCnt {
+class Font {
 public:
 	Font(const std::filesystem::path &path, int list = PVR_LIST_TR_POLY);
 	virtual ~Font();

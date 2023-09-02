@@ -18,7 +18,7 @@
 #include <deque>
 #include <memory>
 
-class Drawable : virtual public RefCnt {
+class Drawable {
 public:
 	/// Constructor / Destructor
 	Drawable();

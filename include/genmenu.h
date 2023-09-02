@@ -9,7 +9,6 @@
 #ifndef __TSUNAMI_GENMENU_H
 #define __TSUNAMI_GENMENU_H
 
-#include "refcnt.h"
 #include "drawables/scene.h"
 
 #include <filesystem>
