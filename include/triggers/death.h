@@ -15,7 +15,7 @@
 class Death : public Trigger {
 public:
 	// Constructor / Destructor
-	Death(Drawable * target = NULL);
+	Death(Drawable * target = nullptr);
 	virtual ~Death();
 
 	virtual void trigger(Drawable *t, Animation *a);

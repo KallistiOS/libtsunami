@@ -24,7 +24,7 @@ Drawable::Drawable() {
 	m_finished = false;
 	m_subs_finished = false;
 
-	m_parent = NULL;
+	m_parent = nullptr;
 }
 
 Drawable::~Drawable() {
@@ -93,7 +93,7 @@ void Drawable::subNextFrame() {
 }
 
 void Drawable::subAdd(Drawable *t) {
-	assert( t->m_parent == NULL );
+	assert( t->m_parent == nullptr );
 	t->m_parent = this;
 	m_subs.insertHead(t);
 }

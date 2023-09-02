@@ -10,15 +10,15 @@
 
 Font::Font(const char *fn, int list) {
 	m_list = list;
-	m_font = NULL;
-	m_cxt = NULL;
+	m_font = nullptr;
+	m_cxt = nullptr;
 	if (fn) {
 		if (!loadFromFile(fn)) {
 			assert( false );
 		}
 	} else {
-		m_font = NULL;
-		m_cxt = NULL;
+		m_font = nullptr;
+		m_cxt = nullptr;
 	}
 	m_a = m_r = m_g = m_b = 1.0f;
 	m_ps = 24.0f;
@@ -34,11 +34,11 @@ Font::~Font() {
 bool Font::loadFromFile(const char * fn) {
 	if (m_cxt) {
 		plx_fcxt_destroy(m_cxt);
-		m_cxt = NULL;
+		m_cxt = nullptr;
 	}
 	if (m_font) {
 		plx_font_destroy(m_font);
-		m_font = NULL;
+		m_font = nullptr;
 	}
 
 	m_font = plx_font_load(fn);

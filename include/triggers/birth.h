@@ -15,7 +15,7 @@
 class Birth : public Trigger {
 public:
 	// Constructor / Destructor
-	Birth(Drawable * newDrawable, Drawable * target = NULL);
+	Birth(Drawable * newDrawable, Drawable * target = nullptr);
 	virtual ~Birth();
 
 	virtual void trigger(Drawable *t, Animation *a);

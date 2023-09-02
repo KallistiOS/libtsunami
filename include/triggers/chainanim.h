@@ -17,7 +17,7 @@
 class ChainAnimation : public Trigger {
 public:
 	// Constructor / Destructor
-	ChainAnimation(Animation *na, Drawable * target = NULL) {
+	ChainAnimation(Animation *na, Drawable * target = nullptr) {
 		m_newanim = na;
 		m_target = target;
 	}

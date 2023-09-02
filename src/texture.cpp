@@ -9,25 +9,25 @@
 #include "texture.h"
 
 Texture::Texture(const char *fn, bool use_alpha, bool yflip) {
-	m_txr = NULL;
+	m_txr = nullptr;
 	if (!loadFromFile(fn, use_alpha, yflip))
 		assert( false );
 }
 
 Texture::Texture(int w, int h, int fmt) {
 	m_txr = plx_txr_canvas(w, h, fmt);
-	if (m_txr == NULL) {
+	if (m_txr == nullptr) {
 		dbglog(DBG_WARNING, "Texture::loadFromFile: Can't allocate %dx%dcanvas texture\n", w, h);
 		assert( false );
 	}
 }
 
 Texture::Texture() {
-	m_txr = NULL;
+	m_txr = nullptr;
 }
 
 Texture::~Texture() {
-	if (m_txr != NULL)
+	if (m_txr != nullptr)
 		plx_txr_destroy(m_txr);
 }
 
@@ -46,7 +46,7 @@ void Texture::sendHdr(int list) {
 
 bool Texture::loadFromFile(const char *fn, bool use_alpha, bool flip) {
 	m_txr = plx_txr_load(fn, use_alpha, flip ? PVR_TXRLOAD_INVERT_Y : 0);
-	if (m_txr == NULL) {
+	if (m_txr == nullptr) {
 		dbglog(DBG_WARNING, "Texture::loadFromFile: Can't load '%s'\n", fn);
 		return false;
 	} else
