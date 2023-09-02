@@ -16,6 +16,7 @@
 #include "color.h"
 
 #include <deque>
+#include <memory>
 
 class Drawable : virtual public RefCnt {
 public:
@@ -24,7 +25,7 @@ public:
 	virtual ~Drawable();
 
 	/// Add an animation object to us
-	void animAdd(Animation * ani);
+	void animAdd(std::shared_ptr<Animation> ani);
 
 	/// Remove an animation object from us
 	void animRemove(Animation * ani);
@@ -47,7 +48,7 @@ public:
 	void subNextFrame();
 
 	/// Add a new object to our sub-drawables
-	void subAdd(Drawable *t);
+	void subAdd(std::shared_ptr<Drawable> t);
 
 	/// Remove an object from our sub-drawables
 	void subRemove(Drawable * t);
@@ -133,8 +134,8 @@ private:
 
 	Drawable	* m_parent;		///< Our parent object
 
-	std::deque<Animation *>	m_anims;		///< Animation objects
-	std::deque<Drawable *>	m_subs;			///< Our sub-drawable list
+	std::deque<std::shared_ptr<Animation>>	m_anims;		///< Animation objects
+	std::deque<std::shared_ptr<Drawable>>	m_subs;			///< Our sub-drawable list
 };
 
 #endif	/* __TSUNAMI_DRAWABLE_H */

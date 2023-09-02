@@ -32,12 +32,13 @@ Drawable::Drawable() {
 Drawable::~Drawable() {
 }
 
-void Drawable::animAdd(Animation * ani) {
+void Drawable::animAdd(std::shared_ptr<Animation> ani) {
 	m_anims.push_front(ani);
 }
 
 void Drawable::animRemove(Animation *ani) {
-	auto it = std::find(m_anims.begin(), m_anims.end(), ani);
+	auto is_ptr = [=](std::shared_ptr<Animation> sp) { return sp.get() == ani; };
+	auto it = std::find_if(m_anims.begin(), m_anims.end(), is_ptr);
 
 	if (it != m_anims.end())
 		m_anims.erase(it);
@@ -82,7 +83,7 @@ void Drawable::subNextFrame() {
 	}
 }
 
-void Drawable::subAdd(Drawable *t) {
+void Drawable::subAdd(std::shared_ptr<Drawable> t) {
 	assert( t->m_parent == nullptr );
 	t->m_parent = this;
 	m_subs.push_front(t);
@@ -91,7 +92,8 @@ void Drawable::subAdd(Drawable *t) {
 void Drawable::subRemove(Drawable *t) {
 	t->m_parent = nullptr;
 
-	auto it = std::find(m_subs.begin(), m_subs.end(), t);
+	auto is_ptr = [=](std::shared_ptr<Drawable> sp) { return sp.get() == t; };
+	auto it = std::find_if(m_subs.begin(), m_subs.end(), is_ptr);
 
 	if (it != m_subs.end())
 		m_subs.erase(it);

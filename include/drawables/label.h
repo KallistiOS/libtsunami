@@ -17,17 +17,17 @@
 
 class Label : public Drawable {
 public:
-	Label(Font * fh, const std::string &text,
+	Label(std::shared_ptr<Font> fh, const std::string &text,
 	      int size, bool centered, bool smear);
 	virtual ~Label();
 
 	void setText(const std::string &text);
-	void setFont(Font * f);
+	void setFont(std::shared_ptr<Font> f);
 
 	virtual void draw(int list);
 
 private:
-	RefPtr<Font>	m_fh;
+	std::shared_ptr<Font>	m_fh;
 	std::string	m_text;
 	int		m_size;
 	bool		m_centered;
