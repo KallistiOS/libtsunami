@@ -12,17 +12,20 @@
 
 #include "../trigger.h"
 
+#include <memory>
+
 class Birth : public Trigger {
 public:
 	// Constructor / Destructor
-	Birth(Drawable * newDrawable, Drawable * target = nullptr);
+	Birth(std::shared_ptr<Drawable> newDrawable,
+	      std::shared_ptr<Drawable> target = nullptr);
 	virtual ~Birth();
 
 	virtual void trigger(Drawable *t, Animation *a);
 
 private:
-	RefPtr<Drawable>	m_newDrawable;
-	RefPtr<Drawable>	m_target;
+	std::shared_ptr<Drawable>	m_newDrawable;
+	std::shared_ptr<Drawable>	m_target;
 };
 
 #endif	/* __TSUNAMI_TRIG_BIRTH_H */

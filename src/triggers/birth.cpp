@@ -9,7 +9,8 @@
 #include "triggers/birth.h"
 #include "drawable.h"
 
-Birth::Birth(Drawable * newDrawable, Drawable * target) {
+Birth::Birth(std::shared_ptr<Drawable> newDrawable,
+	     std::shared_ptr<Drawable> target) {
 	m_newDrawable = newDrawable;
 	m_target = target;
 }

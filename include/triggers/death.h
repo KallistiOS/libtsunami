@@ -12,15 +12,17 @@
 
 #include "../trigger.h"
 
+#include <memory>
+
 class Death : public Trigger {
 public:
 	// Constructor / Destructor
-	Death(Drawable * target = nullptr);
+	Death(std::shared_ptr<Drawable> target = nullptr);
 	virtual ~Death();
 
 	virtual void trigger(Drawable *t, Animation *a);
 private:
-	RefPtr<Drawable>	m_target;
+	std::shared_ptr<Drawable> m_target;
 };
 
 #endif	/* __TSUNAMI_TRIG_DEATH_H */

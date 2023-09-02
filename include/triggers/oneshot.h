@@ -21,13 +21,11 @@ public:
 	class Target {
 	public:
 		virtual void shoot(int code) = 0;
-		virtual RefCnt * getRefCnt() = 0;
 	};
 
 	// Constructor / Destructor
-	OneShot(Target * t, int code) {
+	OneShot(std::shared_ptr<Target> t, int code) {
 		m_target = t;
-		m_ref = t->getRefCnt();
 		m_code = code;
 	}
 	virtual ~OneShot() { }
@@ -38,8 +36,7 @@ public:
 	}
 
 private:
-	Target		* m_target;
-	RefPtr<RefCnt>	m_ref;
+	std::shared_ptr<Target> m_target;
 	int		m_code;
 };
 
