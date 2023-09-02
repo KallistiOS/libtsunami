@@ -12,8 +12,9 @@
 
 class Drawable;
 
-#include "list.h"
 #include "trigger.h"
+
+#include <deque>
 
 class Animation : virtual public RefCnt {
 public:
@@ -41,7 +42,7 @@ protected:
 	virtual void complete(Drawable *t);
 
 private:
-	List<Trigger>	m_triggers;		// Animation triggers
+	std::deque<Trigger *> m_triggers; // Animation triggers
 };
 
 #endif	/* __TSUNAMI_ANIMATION_H */

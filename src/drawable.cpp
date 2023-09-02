@@ -9,6 +9,8 @@
 #include "drawable.h"
 #include <plx/matrix.h>
 
+#include <algorithm>
+
 // Constructor / Destructor
 Drawable::Drawable() {
 	m_trans.zero();
@@ -31,103 +33,86 @@ Drawable::~Drawable() {
 }
 
 void Drawable::animAdd(Animation * ani) {
-	m_anims.insertHead(ani);
+	m_anims.push_front(ani);
 }
 
-void Drawable::animRemove(Animation * ani) {
-	m_anims.del(ani);
+void Drawable::animRemove(Animation *ani) {
+	auto it = std::find(m_anims.begin(), m_anims.end(), ani);
+
+	if (it != m_anims.end())
+		m_anims.erase(it);
 }
 
 void Drawable::animRemoveAll() {
-	m_anims.delAll();
+	m_anims.clear();
 }
 
 bool Drawable::isFinished() {
-	if (m_subs_finished)
-		return m_finished;
+	if (!m_subs_finished) {
+		for (auto it: m_subs) {
+			if (!it->isFinished())
+				return false;
+		}
 
-	ListNode<Drawable> * t;
-	t = m_subs.getHead();
-	while (t) {
-		if (!(*t)->isFinished())
-			return false;
-		t = t->getNext();
+		m_subs_finished = true;
 	}
 
-	m_subs_finished = true;
 	return m_finished;
 }
 
 void Drawable::setFinished() {
 	m_finished = true;
 
-	ListNode<Drawable> * t;
-	t = m_subs.getHead();
-	while (t) {
-		(*t)->setFinished();
-		t = t->getNext();
+	for (auto it: m_subs) {
+		it->setFinished();
 	}
 }
 
 void Drawable::subDraw(int list) {
-	ListNode<Drawable> * t;
-	t = m_subs.getHead();
-	while (t) {
-		if (!(*t)->isFinished())
-			(*t)->draw(list);
-		t = t->getNext();
+	for (auto it: m_subs) {
+		if (!it->isFinished())
+			it->draw(list);
 	}
 }
 
 void Drawable::subNextFrame() {
-	ListNode<Drawable> * t, * n;
-	t = m_subs.getHead();
-	while (t) {
-		// We do getNext() first here in case a drawable
-		// decides to remove itself from the scene.
-		n = t->getNext();
-		if (!(*t)->isFinished())
-			(*t)->nextFrame();
-		t = n;
+	for (auto it: m_subs) {
+		if (!it->isFinished())
+			it->nextFrame();
 	}
 }
 
 void Drawable::subAdd(Drawable *t) {
 	assert( t->m_parent == nullptr );
 	t->m_parent = this;
-	m_subs.insertHead(t);
+	m_subs.push_front(t);
 }
 
 void Drawable::subRemove(Drawable *t) {
-	assert( t->m_parent == this );
-	t->m_parent = NULL;
-	m_subs.del(t);
+	t->m_parent = nullptr;
+
+	auto it = std::find(m_subs.begin(), m_subs.end(), t);
+
+	if (it != m_subs.end())
+		m_subs.erase(it);
 }
 
 void Drawable::subRemoveFinished() {
-	ListNode<Drawable> * t, * tn;
-	t = m_subs.getHead();
-	while (t) {
-		tn = t->getNext();
-		if ((*t)->isFinished()) {
-			assert( (*t)->m_parent == this );
-			(*t)->m_parent = NULL;
-			t->remove();
-			delete t;
+	for (auto it = m_subs.begin(); it != m_subs.end();) {
+		if ((*it)->isFinished()) {
+			(*it)->m_parent = nullptr;
+			it = m_subs.erase(it);
+		} else {
+			it++;
 		}
-		t = tn;
 	}
 }
 
 void Drawable::subRemoveAll() {
-	ListNode<Drawable> * t;
-	t = m_subs.getHead();
-	while (t) {
-		assert( (*t)->m_parent == this );
-		(*t)->m_parent = NULL;
-		t = t->getNext();
+	for (auto it = m_subs.begin(); it != m_subs.end();) {
+		(*it)->m_parent = nullptr;
+		it = m_subs.erase(it);
 	}
-	m_subs.delAll();
 }
 
 void Drawable::draw(int list) {
@@ -135,15 +120,15 @@ void Drawable::draw(int list) {
 }
 
 void Drawable::nextFrame() {
-	ListNode<Animation> * t, * n;
-	t = m_anims.getHead();
-	while (t) {
-		// We do getNext() first here in case an animation
-		// decides to remove itself from the list.
-		n = t->getNext();
-		(*t)->nextFrame(this);
-		t = n;
+	/* Duplicate the array of animations. This makes the "for" loop much
+	 * easier as we don't have to handle it->nextFrame() calling
+	 * animRemove(). */
+	auto anims = m_anims;
+
+	for (auto it: anims) {
+		it->nextFrame(this);
 	}
+
 	subNextFrame();
 }
 

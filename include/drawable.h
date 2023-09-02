@@ -12,9 +12,10 @@
 
 #include "animation.h"
 
-#include "list.h"
 #include "vector.h"
 #include "color.h"
+
+#include <deque>
 
 class Drawable : virtual public RefCnt {
 public:
@@ -132,8 +133,8 @@ private:
 
 	Drawable	* m_parent;		///< Our parent object
 
-	List<Animation>	m_anims;		///< Animation objects
-	List<Drawable>	m_subs;			///< Our sub-drawable list
+	std::deque<Animation *>	m_anims;		///< Animation objects
+	std::deque<Drawable *>	m_subs;			///< Our sub-drawable list
 };
 
 #endif	/* __TSUNAMI_DRAWABLE_H */
