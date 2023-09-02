@@ -1,9 +1,9 @@
-/*      
+/*
    Tsunami for KallistiOS ##version##
-        
+
    refcnt.h
 
-   (c)2002 Dan Potter
+   Copyright (C) 2002 Megan Potter
 
 */
 
@@ -131,4 +131,3 @@ private:
 
 
 #endif	/* __TSUNAMI_REFCNT_H */
-

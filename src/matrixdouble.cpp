@@ -3,8 +3,8 @@
 
    matrixdouble.cpp
 
-   Copyright (C)2001,2002,2003 Dan Potter
-   Copyright (C)2002 Benoit Miller and Paul Boese
+   Copyright (C) 2001, 2002, 2003 Megan Potter
+   Copyright (C) 2002 Benoit Miller and Paul Boese
 */
 
 #include "matrixdouble.h"

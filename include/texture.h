@@ -1,9 +1,9 @@
-/*      
+/*
    Tsunami for KallistiOS ##version##
-        
+
    texture.h
 
-   (c)2002 Dan Potter
+   Copyright (C) 2002 Megan Potter
 
 */
 
@@ -22,7 +22,7 @@ public:
 
 	// Load this texture from a file (if it hasn't been done already)
 	bool loadFromFile(const char *fn, bool use_alpha, bool yflip);
-	
+
 	// Submit one of the poly headers
 	void sendHdr(int list);
 

@@ -1,9 +1,9 @@
-/*      
+/*
    Tsunami for KallistiOS ##version##
 
    list.h
 
-   (c)2002 Dan Potter
+   Copyright (C) 2002 Megan Potter
 
 */
 
@@ -96,7 +96,7 @@ public:
 	List() {
 		TAILQ_INIT(&m_list);
 	}
-	
+
 	virtual ~List() {
 		delAll();
 	}
@@ -119,7 +119,7 @@ public:
 	/// reference will be removed if it is found.
 	bool del(T * item) {
 		ListNode<T> * n;
-		
+
 		TAILQ_FOREACH(n, &m_list, m_listptr) {
 			if (n->getData() == item) {
 				n->remove();
@@ -155,7 +155,7 @@ public:
 
 private:
 	friend class ListNode<T>;
-	
+
 	TAILQ_HEAD(listnodehead, ListNode<T>) m_list;
 
 public:

@@ -1,9 +1,9 @@
-/*      
+/*
    Tsunami for KallistiOS ##version##
-        
+
    matrix.h
 
-   Copyright (C)2003 Dan Potter
+   Copyright (C) 2003 Megan Potter
 
 */
 
@@ -80,4 +80,3 @@ public:
 };
 
 #endif	/* __TSUNAMI_MATRIX_H */
-

@@ -1,9 +1,9 @@
-/*      
+/*
    Tsunami for KallistiOS ##version##
-        
+
    font.h
 
-   (c)2002 Dan Potter
+   Copyright (C) 2002 Megan Potter
 
 */
 
@@ -22,7 +22,7 @@ public:
 	bool loadFromFile(const char * fn);
 
 	void setFilter(int type);
-	
+
 	void setColor(float r, float g, float b);
 	void setAlpha(float a);
 	void setSize(float size);
@@ -37,7 +37,7 @@ public:
 	void drawCharSetPos(const Vector &v);
 	float drawChar(int ch);
 	void drawCharEnd();
-	
+
 	void getCharExtents(int c, float * l, float * u, float * r, float * d);
 	void getTextSize(const char *text, float * w, float * h);
 	void upperleftCoords(const char * text, float *x, float *y);
@@ -55,4 +55,3 @@ private:
 };
 
 #endif	/* __FONTHELPER_H */
-

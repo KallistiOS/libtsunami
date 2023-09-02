@@ -1,9 +1,9 @@
-/*      
+/*
    Tsunami for KallistiOS ##version##
-        
+
    scene.h
 
-   (c)2002 Dan Potter
+   Copyright (C) 2002 Megan Potter
 
 */
 
@@ -30,4 +30,3 @@ public:
 };
 
 #endif	/* __TSUNAMI_DRW_SCENE_H */
-

@@ -1,9 +1,9 @@
-/*      
+/*
    Tsunami for KallistiOS ##version##
-        
+
    color.h
 
-   Copyright (C)2003 Dan Potter
+   Copyright (C) 2003 Megan Potter
 
 */
 
@@ -81,4 +81,3 @@ struct Color {
 };
 
 #endif	/* __TSUNAMI_COLOR_H */
-

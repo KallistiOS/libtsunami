@@ -1,9 +1,9 @@
-/*      
+/*
    Tsunami for KallistiOS ##version##
-        
+
    animation.h
 
-   (c)2002 Dan Potter
+   Copyright (C) 2002 Megan Potter
 
 */
 
@@ -33,7 +33,7 @@ public:
 	// Move to the next frame of animation
 	virtual void nextFrame(Drawable *t);
 
-protected:	
+protected:
 	/// Trigger any triggers
 	virtual void trigger(Drawable *d);
 
@@ -45,4 +45,3 @@ private:
 };
 
 #endif	/* __TSUNAMI_ANIMATION_H */
-

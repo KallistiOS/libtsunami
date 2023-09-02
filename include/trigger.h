@@ -1,9 +1,9 @@
-/*      
+/*
    Tsunami for KallistiOS ##version##
-        
+
    trigger.h
 
-   (c)2002 Dan Potter
+   Copyright (C) 2002 Megan Potter
 
 */
 
@@ -29,4 +29,3 @@ public:
 };
 
 #endif	/* __TSUNAMI_TRIGGER_H */
-

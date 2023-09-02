@@ -1,9 +1,9 @@
-/*      
+/*
    Tsunami for KallistiOS ##version##
-        
+
    vectordouble.h
 
-   Copyright (C)2002,2003,2004 Dan Potter
+   Copyright (C) 2002, 2003, 2004 Megan Potter
 
 */
 
@@ -164,4 +164,3 @@ public:
 };
 
 #endif	/* __TSUNAMI_VECTORDOUBLE_H */
-

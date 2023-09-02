@@ -1,9 +1,9 @@
-/*      
+/*
    Tsunami for KallistiOS ##version##
-        
+
    matrixdouble.h
 
-   Copyright (C)2003,2004 Dan Potter
+   Copyright (C) 2003, 2004 Megan Potter
 
 */
 
@@ -80,4 +80,3 @@ public:
 };
 
 #endif	/* __TSUNAMI_MATRIXDOUBLE_H */
-

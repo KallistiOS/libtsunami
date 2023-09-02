@@ -1,9 +1,9 @@
-/*      
+/*
    Tsunami for KallistiOS ##version##
-        
+
    genmenu.h
 
-   Copyright (C)2003 Dan Potter
+   Copyright (C) 2003 Megan Potter
 */
 
 #ifndef __TSUNAMI_GENMENU_H
@@ -79,7 +79,7 @@ public:
 
 	// Set a post-doMenu delay in case sounds may still be playing
 	void setPostDelay(int ms);
-	
+
 protected:
 	// Called once per frame to update the screen. Generally no need
 	// to override this method.
@@ -171,4 +171,3 @@ protected:
 };
 
 #endif	/* __GENMENU_H */
-

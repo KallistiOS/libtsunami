@@ -1,9 +1,9 @@
-/*      
+/*
    Tsunami for KallistiOS ##version##
-        
+
    birth.h
 
-   Copyright (C)2003 Dan Potter
+   Copyright (C) 2003 Megan Potter
 
 */
 
@@ -26,4 +26,3 @@ private:
 };
 
 #endif	/* __TSUNAMI_TRIG_BIRTH_H */
-

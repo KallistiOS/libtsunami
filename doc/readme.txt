@@ -1,5 +1,5 @@
 Tsunami for KOS ##version##
-(c)2002 Dan Potter
+Copyright (C) 2002 Megan Potter
 
 
 What is it?
@@ -18,7 +18,7 @@ itself".
 Tsunami provides a high level way to describe what a scene looks like, and
 then you simply call into it to have it manage everything each frame. Each
 scene is composed of one or more "drawables" (one of which is the whole scene
-container). Each of these drawables has a screen position and other 
+container). Each of these drawables has a screen position and other
 attributes that describe its state. Additionally, each drawable can contain
 sub-drawables which can be positioned, rotated, etc, relative to its
 parents. Furthermore, each drawable knows how to draw itself in position
@@ -41,7 +41,7 @@ of the object to some new value. Of course, all of these can be done at
 once and in tandem with the object's intrinsic animation(s), if any.
 
 Triggers provide a simple mechanism to have a multi-legged animation. The
-current trigger mechanism allows for you to do things like switch out an 
+current trigger mechanism allows for you to do things like switch out an
 animation or signal that a drawable is dead in the scene upon the completion
 of another animation, but I'm also planning to add triggers based on time
 and other events (like controller inputs).
@@ -58,4 +58,3 @@ with the reference counted objects pervasively, dodging the bullet that
 things like CComPtr setup in the MS world (i.e. mixing of raw pointers and
 auto_ptrs, causing the programmer to have to defacto manually reference
 count anyway).
-

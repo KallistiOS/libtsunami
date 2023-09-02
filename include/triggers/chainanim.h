@@ -1,9 +1,9 @@
-/*      
+/*
    Tsunami for KallistiOS ##version##
-        
+
    chainanim.h
 
-   (c)2002 Dan Potter
+   Copyright (C) 2002 Megan Potter
 
 */
 
@@ -40,4 +40,3 @@ private:
 };
 
 #endif	/* __TSUNAMI_TRIG_CHAINANIM_H */
-
