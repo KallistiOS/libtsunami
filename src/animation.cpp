@@ -17,12 +17,13 @@ Animation::Animation() {
 Animation::~Animation() {
 }
 
-void Animation::triggerAdd(Trigger *t) {
+void Animation::triggerAdd(std::shared_ptr<Trigger> t) {
 	m_triggers.push_front(t);
 }
 
 void Animation::triggerRemove(Trigger *tr) {
-	auto it = std::find(m_triggers.begin(), m_triggers.end(), tr);
+	auto is_ptr = [=](std::shared_ptr<Trigger> sp) { return sp.get() == tr; };
+	auto it = std::find_if(m_triggers.begin(), m_triggers.end(), is_ptr);
 
 	if (it != m_triggers.end())
 		m_triggers.erase(it);

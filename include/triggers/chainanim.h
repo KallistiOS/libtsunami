@@ -17,7 +17,7 @@
 class ChainAnimation : public Trigger {
 public:
 	// Constructor / Destructor
-	ChainAnimation(Animation *na, Drawable * target = nullptr) {
+	ChainAnimation(std::shared_ptr<Animation> na, std::shared_ptr<Drawable> target = nullptr) {
 		m_newanim = na;
 		m_target = target;
 	}
@@ -35,8 +35,8 @@ public:
 	}
 
 private:
-	RefPtr<Animation>	m_newanim;
-	RefPtr<Drawable>	m_target;
+	std::shared_ptr<Animation>	m_newanim;
+	std::shared_ptr<Drawable>	m_target;
 };
 
 #endif	/* __TSUNAMI_TRIG_CHAINANIM_H */

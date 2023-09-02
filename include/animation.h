@@ -14,6 +14,7 @@ class Drawable;
 
 #include "trigger.h"
 
+#include <memory>
 #include <deque>
 
 class Animation : virtual public RefCnt {
@@ -23,7 +24,7 @@ public:
 	virtual ~Animation();
 
 	/// Add a trigger to our list of triggers
-	void triggerAdd(Trigger *t);
+	void triggerAdd(std::shared_ptr<Trigger> t);
 
 	/// Remove a trigger from our list of triggers
 	void triggerRemove(Trigger *t);
@@ -42,7 +43,7 @@ protected:
 	virtual void complete(Drawable *t);
 
 private:
-	std::deque<Trigger *> m_triggers; // Animation triggers
+	std::deque<std::shared_ptr<Trigger>> m_triggers; // Animation triggers
 };
 
 #endif	/* __TSUNAMI_ANIMATION_H */
