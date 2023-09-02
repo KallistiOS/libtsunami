@@ -8,11 +8,11 @@
 
 #include "font.h"
 
-Font::Font(const char *fn, int list) {
+Font::Font(const std::filesystem::path &fn, int list) {
 	m_list = list;
 	m_font = nullptr;
 	m_cxt = nullptr;
-	if (fn) {
+	if (!fn.empty()) {
 		if (!loadFromFile(fn)) {
 			assert( false );
 		}
@@ -31,7 +31,7 @@ Font::~Font() {
 		plx_font_destroy(m_font);
 }
 
-bool Font::loadFromFile(const char * fn) {
+bool Font::loadFromFile(const std::filesystem::path &fn) {
 	if (m_cxt) {
 		plx_fcxt_destroy(m_cxt);
 		m_cxt = nullptr;
@@ -41,7 +41,7 @@ bool Font::loadFromFile(const char * fn) {
 		m_font = nullptr;
 	}
 
-	m_font = plx_font_load(fn);
+	m_font = plx_font_load(fn.c_str());
 	if (!m_font)
 		return false;
 	m_cxt = plx_fcxt_create(m_font, m_list);

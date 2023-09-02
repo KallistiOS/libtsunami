@@ -14,14 +14,16 @@
 
 #include <dc/sound/sfxmgr.h>
 
+#include <filesystem>
+
 class Sound : virtual public RefCnt {
 public:
-	Sound(const char * fn);
+	Sound(const std::filesystem::path &fn);
 	Sound();
 	virtual ~Sound();
 
 	// Load a sound from a file for use in this object.
-	bool loadFromFile(const char *fn);
+	bool loadFromFile(const std::filesystem::path &fn);
 
 	// Play the sound effect with volume 240 and panning 0x80.
 	void play();

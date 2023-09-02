@@ -8,7 +8,7 @@
 
 #include "texture.h"
 
-Texture::Texture(const char *fn, bool use_alpha, bool yflip) {
+Texture::Texture(const std::filesystem::path &fn, bool use_alpha, bool yflip) {
 	m_txr = nullptr;
 	if (!loadFromFile(fn, use_alpha, yflip))
 		assert( false );
@@ -44,10 +44,10 @@ void Texture::sendHdr(int list) {
 	plx_txr_send_hdr(m_txr, list, 0);
 }
 
-bool Texture::loadFromFile(const char *fn, bool use_alpha, bool flip) {
-	m_txr = plx_txr_load(fn, use_alpha, flip ? PVR_TXRLOAD_INVERT_Y : 0);
+bool Texture::loadFromFile(const std::filesystem::path &fn, bool use_alpha, bool flip) {
+	m_txr = plx_txr_load(fn.c_str(), use_alpha, flip ? PVR_TXRLOAD_INVERT_Y : 0);
 	if (m_txr == nullptr) {
-		dbglog(DBG_WARNING, "Texture::loadFromFile: Can't load '%s'\n", fn);
+		dbglog(DBG_WARNING, "Texture::loadFromFile: Can't load '%s'\n", fn.c_str());
 		return false;
 	} else
 		return true;

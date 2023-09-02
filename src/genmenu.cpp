@@ -35,7 +35,6 @@
 #include <dc/maple/keyboard.h>
 
 GenericMenu::GenericMenu() {
-	m_bgmFn[0] = 0;
 	m_usebgm = false;
 	m_cachebgm = false;
 
@@ -398,9 +397,9 @@ void GenericMenu::quitNow() {
 	m_exitSpeed = 0.0f;
 }
 
-void GenericMenu::setBgm(const char * fn, bool cache) {
-	if (fn) {
-		strcpy(m_bgmFn, fn);
+void GenericMenu::setBgm(const std::filesystem::path &fn, bool cache) {
+	if (!fn.empty()) {
+		m_bgmFn = fn;
 		m_usebgm = true;
 	} else
 		m_usebgm = false;

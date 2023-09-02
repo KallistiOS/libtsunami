@@ -12,6 +12,8 @@
 #include "refcnt.h"
 #include "drawables/scene.h"
 
+#include <filesystem>
+
 /* This defines a fully generic menu system. Basically what you do is
    derive from this class and then implement the constructor (which adds
    things to the internal scene object) and the inputEvent method (which
@@ -116,7 +118,7 @@ protected:
 	// Call this method to setup a background song to be played during the
 	// menu. You should do this before calling doMenu(). The song will
 	// be started with the menu and faded out on exit.
-	virtual void setBgm(const char * fn, bool cache = false);
+	virtual void setBgm(const std::filesystem::path &fn, bool cache = false);
 
 	// This method should be called any time the user does something that
 	// would cancel the menu's timeout.
@@ -138,7 +140,7 @@ protected:
 
 	// Name of the song we'll use for background music (if any). If this
 	// is an empty string, we'll not use a song.
-	char 		m_bgmFn[256];
+	std::filesystem::path	m_bgmFn;
 	bool		m_usebgm, m_cachebgm;
 
 	// Background plane color

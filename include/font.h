@@ -14,12 +14,14 @@
 #include "refcnt.h"
 #include "vector.h"
 
+#include <filesystem>
+
 class Font : virtual public RefCnt {
 public:
-	Font(const char *fn = NULL, int list = PVR_LIST_TR_POLY);
+	Font(const std::filesystem::path &path, int list = PVR_LIST_TR_POLY);
 	virtual ~Font();
 
-	bool loadFromFile(const char * fn);
+	bool loadFromFile(const std::filesystem::path &path);
 
 	void setFilter(int type);
 
