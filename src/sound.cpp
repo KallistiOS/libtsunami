@@ -8,6 +8,8 @@
 
 #include "sound.h"
 
+#include <cassert>
+
 int Sound::m_default_vol = 240;
 
 Sound::Sound(const std::filesystem::path &fn) {

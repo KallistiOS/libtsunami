@@ -8,6 +8,10 @@
 
 #include "texture.h"
 
+#include <kos/dbglog.h>
+
+#include <cassert>
+
 Texture::Texture(const std::filesystem::path &fn, bool use_alpha, bool yflip) {
 	m_txr = nullptr;
 	if (!loadFromFile(fn, use_alpha, yflip))

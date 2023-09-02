@@ -34,6 +34,8 @@
 #include <dc/maple/controller.h>
 #include <dc/maple/keyboard.h>
 
+#include <cstdio>
+
 GenericMenu::GenericMenu() {
 	m_usebgm = false;
 	m_cachebgm = false;
