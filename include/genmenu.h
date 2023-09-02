@@ -158,7 +158,7 @@ protected:
 	uint32		m_timeout;
 
 	// Our scene object
-	RefPtr<Scene>	m_scene;
+	std::shared_ptr<Scene>	m_scene;
 
 	// Allow one "main" controller in each port. We'll track what's in
 	// each port and what buttons are currently held.

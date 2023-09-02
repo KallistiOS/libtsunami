@@ -48,7 +48,7 @@ GenericMenu::GenericMenu() {
 	m_totime = 0;
 	m_timeout = 45;
 
-	m_scene = new Scene();
+	m_scene = std::make_shared<Scene>();
 
 	m_contTypes[0] = m_contTypes[1] = m_contTypes[2] = m_contTypes[3] = 0;
 	m_contBtns[0] = m_contBtns[1] = m_contBtns[2] = m_contBtns[3] = 0;
