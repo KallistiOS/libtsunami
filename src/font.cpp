@@ -78,12 +78,12 @@ void Font::setSize(float size) {
 	plx_fcxt_setsize(m_cxt, m_ps);
 }
 
-void Font::draw(float x, float y, float z, const char *text) {
+void Font::draw(float x, float y, float z, const std::string &text) {
 	assert( m_cxt );
 
 	plx_fcxt_setpos(m_cxt, x, y, z);
 	plx_fcxt_begin(m_cxt);
-	plx_fcxt_draw(m_cxt, text);
+	plx_fcxt_draw(m_cxt, text.c_str());
 	plx_fcxt_end(m_cxt);
 }
 
@@ -120,45 +120,45 @@ void Font::drawCharEnd() {
 	plx_fcxt_end(m_cxt);
 }
 
-void Font::drawCentered(float x, float y, float z, const char *text) {
+void Font::drawCentered(float x, float y, float z, const std::string &text) {
 	assert( m_cxt );
 
 	centerCoords(text, &x, &y);
 	draw(x, y, z, text);
 }
 
-void Font::smearDraw(float x, float y, float z, const char *text) {
+void Font::smearDraw(float x, float y, float z, const std::string &text) {
 	assert( m_cxt );
 
 	plx_fcxt_begin(m_cxt);
 
 	// Draw the text itself
 	plx_fcxt_setpos(m_cxt, x, y, z);
-	plx_fcxt_draw(m_cxt, text);
+	plx_fcxt_draw(m_cxt, text.c_str());
 
 	// Draw a nifty subtitle border
 	// Guess all that time I spent on BakaSub wasn't wasted after all ^_-
 	plx_fcxt_setcolor4f(m_cxt, m_a, 0.0f, 0.0f, 0.0f);
 	plx_fcxt_setpos(m_cxt, x + 1, y + 0, z - 1.0f);
-	plx_fcxt_draw(m_cxt, text);
+	plx_fcxt_draw(m_cxt, text.c_str());
 	plx_fcxt_setpos(m_cxt, x + 1, y + 1, z - 1.0f);
-	plx_fcxt_draw(m_cxt, text);
+	plx_fcxt_draw(m_cxt, text.c_str());
 	plx_fcxt_setpos(m_cxt, x + 0, y + 1, z - 1.0f);
-	plx_fcxt_draw(m_cxt, text);
+	plx_fcxt_draw(m_cxt, text.c_str());
 	plx_fcxt_setpos(m_cxt, x - 1, y + 1, z - 1.0f);
-	plx_fcxt_draw(m_cxt, text);
+	plx_fcxt_draw(m_cxt, text.c_str());
 	plx_fcxt_setpos(m_cxt, x - 1, y + 0, z - 1.0f);
-	plx_fcxt_draw(m_cxt, text);
+	plx_fcxt_draw(m_cxt, text.c_str());
 	plx_fcxt_setpos(m_cxt, x - 1, y - 1, z - 1.0f);
-	plx_fcxt_draw(m_cxt, text);
+	plx_fcxt_draw(m_cxt, text.c_str());
 	plx_fcxt_setpos(m_cxt, x + 0, y + 0, z - 1.0f);
-	plx_fcxt_draw(m_cxt, text);
+	plx_fcxt_draw(m_cxt, text.c_str());
 
 	plx_fcxt_end(m_cxt);
 	plx_fcxt_setcolor4f(m_cxt, m_a, m_r, m_g, m_b);
 }
 
-void Font::smearDrawCentered(float x, float y, float z, const char *text) {
+void Font::smearDrawCentered(float x, float y, float z, const std::string &text) {
 	assert( m_cxt );
 
 	centerCoords(text, &x, &y);
@@ -172,36 +172,36 @@ void Font::getCharExtents(int c, float * l, float * u, float * r, float * d) {
 	plx_fcxt_char_metrics(m_cxt, c, l, u, r, d);
 }
 
-void Font::getTextSize(const char *text, float * w, float * h) {
+void Font::getTextSize(const std::string &text, float * w, float * h) {
 	assert( m_cxt );
 
 	float left, right, bot, top;
 
 	plx_fcxt_setsize(m_cxt, m_ps);
-	plx_fcxt_str_metrics(m_cxt, text, &left, &top, &right, &bot);
+	plx_fcxt_str_metrics(m_cxt, text.c_str(), &left, &top, &right, &bot);
 
 	*w = left+right;
 	*h = top+bot;
 }
 
-void Font::upperleftCoords(const char * text, float *x, float *y) {
+void Font::upperleftCoords(const std::string &text, float *x, float *y) {
 	assert( m_cxt );
 
 	float left, right, bot, top;
 
 	plx_fcxt_setsize(m_cxt, m_ps);
-	plx_fcxt_str_metrics(m_cxt, text, &left, &top, &right, &bot);
+	plx_fcxt_str_metrics(m_cxt, text.c_str(), &left, &top, &right, &bot);
 
 	*y = *y + top;
 }
 
-void Font::centerCoords(const char * text, float *x, float *y) {
+void Font::centerCoords(const std::string &text, float *x, float *y) {
 	assert( m_cxt );
 
 	float left, right, bot, top;
 
 	plx_fcxt_setsize(m_cxt, m_ps);
-	plx_fcxt_str_metrics(m_cxt, text, &left, &top, &right, &bot);
+	plx_fcxt_str_metrics(m_cxt, text.c_str(), &left, &top, &right, &bot);
 
 	*x = *x - (left+right)/2;
 	*y = *y + (bot+top)/2;

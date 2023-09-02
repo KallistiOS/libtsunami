@@ -15,6 +15,7 @@
 #include "vector.h"
 
 #include <filesystem>
+#include <string>
 
 class Font : virtual public RefCnt {
 public:
@@ -29,10 +30,10 @@ public:
 	void setAlpha(float a);
 	void setSize(float size);
 
-	void draw(float x, float y, float z, const char *text);
-	void drawCentered(float x, float y, float z, const char *text);
-	void smearDraw(float x, float y, float z, const char *text);
-	void smearDrawCentered(float x, float y, float z, const char *text);
+	void draw(float x, float y, float z, const std::string &text);
+	void drawCentered(float x, float y, float z, const std::string &text);
+	void smearDraw(float x, float y, float z, const std::string &text);
+	void smearDrawCentered(float x, float y, float z, const std::string &text);
 
 	void drawCharBegin(float x, float y, float z);
 	Vector drawCharGetPos();
@@ -41,9 +42,9 @@ public:
 	void drawCharEnd();
 
 	void getCharExtents(int c, float * l, float * u, float * r, float * d);
-	void getTextSize(const char *text, float * w, float * h);
-	void upperleftCoords(const char * text, float *x, float *y);
-	void centerCoords(const char * text, float *x, float *y);
+	void getTextSize(const std::string &text, float * w, float * h);
+	void upperleftCoords(const std::string &text, float *x, float *y);
+	void centerCoords(const std::string &text, float *x, float *y);
 
 	operator plx_font_t * () const { return m_font; }
 	operator plx_fcxt_t * () const { return m_cxt; }

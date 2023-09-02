@@ -9,7 +9,8 @@
 #include <plx/list.h>
 #include "drawables/label.h"
 
-Label::Label(Font * fh, const char *text, int size, bool centered, bool smear) {
+Label::Label(Font *fh, const std::string &text,
+	     int size, bool centered, bool smear) {
 	m_fh = fh;
 	m_text = text;
 	m_size = size;
@@ -20,7 +21,7 @@ Label::Label(Font * fh, const char *text, int size, bool centered, bool smear) {
 Label::~Label() {
 }
 
-void Label::setText(const char * text) {
+void Label::setText(const std::string &text) {
 	m_text = text;
 }
 
@@ -40,13 +41,13 @@ void Label::draw(int list) {
 	m_fh->setColor(t.r, t.g, t.b);
 	if (m_centered) {
 		if (m_smear)
-			m_fh->smearDrawCentered(p.x, p.y, p.z, m_text);
+			m_fh->smearDrawCentered(p.x, p.y, p.z, m_text.c_str());
 		else
-			m_fh->drawCentered(p.x, p.y, p.z, m_text);
+			m_fh->drawCentered(p.x, p.y, p.z, m_text.c_str());
 	} else {
 		if (m_smear)
-			m_fh->smearDraw(p.x, p.y, p.z, m_text);
+			m_fh->smearDraw(p.x, p.y, p.z, m_text.c_str());
 		else
-			m_fh->draw(p.x, p.y, p.z, m_text);
+			m_fh->draw(p.x, p.y, p.z, m_text.c_str());
 	}
 }
