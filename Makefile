@@ -1,15 +1,16 @@
 # Tsunami for KallistiOS ##version##
 #
 # Makefile
-# (c)2002 Dan Potter
+# Copyright (C) 2002 Megan Potter
 
-TARGET := libtsunami.a
+TARGET     := libtsunami.a
+KOS_CFLAGS += -Iinclude
 
 # Main sources
-OBJS_MAIN := $(patsubst %.cpp,%.o,$(wildcard src/*.cpp))
+OBJS_MAIN  := $(patsubst %.cpp,%.o,$(wildcard src/*.cpp))
 
 # Drawables
-OBJS_DRW := $(patsubst %.cpp,%.o,$(wildcard src/drawables/*.cpp))
+OBJS_DRW   := $(patsubst %.cpp,%.o,$(wildcard src/drawables/*.cpp))
 
 # Animations
 OBJS_ANIMS := $(patsubst %.cpp,%.o,$(wildcard src/anims/*.cpp))
@@ -17,14 +18,7 @@ OBJS_ANIMS := $(patsubst %.cpp,%.o,$(wildcard src/anims/*.cpp))
 # Triggers
 OBJS_TRIGS := $(patsubst %.cpp,%.o,$(wildcard src/triggers/*.cpp))
 
-OBJS := $(OBJS_MAIN) $(OBJS_DRW) $(OBJS_ANIMS) $(OBJS_TRIGS)
-
-defaultall: create_kos_link $(OBJS) subdirs linklib
- 
-# creates the kos link to the headers
-create_kos_link:
-	rm -f ../include/tsu
-	ln -s ../libtsunami/include ../include/tsu
+OBJS       := $(OBJS_MAIN) $(OBJS_DRW) $(OBJS_ANIMS) $(OBJS_TRIGS)
 
 # Grab the shared Makefile pieces
 include $(KOS_BASE)/addons/Makefile.prefab
