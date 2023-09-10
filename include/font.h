@@ -11,15 +11,17 @@
 #define __TSUNAMI_FONT_H
 
 #include <plx/font.h>
-#include "refcnt.h"
 #include "vector.h"
 
-class Font : virtual public RefCnt {
+#include <filesystem>
+#include <string>
+
+class Font {
 public:
-	Font(const char *fn = NULL, int list = PVR_LIST_TR_POLY);
+	Font(const std::filesystem::path &path, int list = PVR_LIST_TR_POLY);
 	virtual ~Font();
 
-	bool loadFromFile(const char * fn);
+	bool loadFromFile(const std::filesystem::path &path);
 
 	void setFilter(int type);
 
@@ -27,10 +29,10 @@ public:
 	void setAlpha(float a);
 	void setSize(float size);
 
-	void draw(float x, float y, float z, const char *text);
-	void drawCentered(float x, float y, float z, const char *text);
-	void smearDraw(float x, float y, float z, const char *text);
-	void smearDrawCentered(float x, float y, float z, const char *text);
+	void draw(float x, float y, float z, const std::string &text);
+	void drawCentered(float x, float y, float z, const std::string &text);
+	void smearDraw(float x, float y, float z, const std::string &text);
+	void smearDrawCentered(float x, float y, float z, const std::string &text);
 
 	void drawCharBegin(float x, float y, float z);
 	Vector drawCharGetPos();
@@ -39,9 +41,9 @@ public:
 	void drawCharEnd();
 
 	void getCharExtents(int c, float * l, float * u, float * r, float * d);
-	void getTextSize(const char *text, float * w, float * h);
-	void upperleftCoords(const char * text, float *x, float *y);
-	void centerCoords(const char * text, float *x, float *y);
+	void getTextSize(const std::string &text, float * w, float * h);
+	void upperleftCoords(const std::string &text, float *x, float *y);
+	void centerCoords(const std::string &text, float *x, float *y);
 
 	operator plx_font_t * () const { return m_font; }
 	operator plx_fcxt_t * () const { return m_cxt; }

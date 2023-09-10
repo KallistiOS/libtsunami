@@ -14,10 +14,7 @@ class Drawable;
 class Animation;
 class Trigger;
 
-#include "list.h"
-#include "refcnt.h"
-
-class Trigger : virtual public RefCnt {
+class Trigger {
 public:
 	// Constructor / Destructor
 	Trigger();

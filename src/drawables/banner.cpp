@@ -8,7 +8,7 @@
 
 #include "drawables/banner.h"
 
-Banner::Banner(int list, Texture * texture) {
+Banner::Banner(int list, std::shared_ptr<Texture> texture) {
 	m_list = list;
 	m_texture = texture;
 
@@ -22,7 +22,7 @@ Banner::Banner(int list, Texture * texture) {
 Banner::~Banner() {
 }
 
-void Banner::setTexture(Texture * txr) {
+void Banner::setTexture(std::shared_ptr<Texture> txr) {
 	m_texture = txr;
 }
 

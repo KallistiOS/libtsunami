@@ -13,19 +13,22 @@
 #include "../drawable.h"
 #include "../font.h"
 
+#include <string>
+
 class Label : public Drawable {
 public:
-	Label(Font * fh, const char *text, int size, bool centered, bool smear);
+	Label(std::shared_ptr<Font> fh, const std::string &text,
+	      int size, bool centered, bool smear);
 	virtual ~Label();
 
-	void setText(const char * text);
-	void setFont(Font * f);
+	void setText(const std::string &text);
+	void setFont(std::shared_ptr<Font> f);
 
 	virtual void draw(int list);
 
 private:
-	RefPtr<Font>	m_fh;
-	const char	* m_text;
+	std::shared_ptr<Font>	m_fh;
+	std::string	m_text;
 	int		m_size;
 	bool		m_centered;
 	bool		m_smear;

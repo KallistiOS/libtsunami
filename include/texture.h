@@ -10,19 +10,20 @@
 #ifndef __TSUNAMI_TEXTURE_H
 #define __TSUNAMI_TEXTURE_H
 
-#include "refcnt.h"
 #include <plx/texture.h>
 
-class Texture : virtual public RefCnt {
+#include <filesystem>
+
+class Texture {
 public:
-	Texture(const char *fn, bool use_alpha, bool yflip = false);
+	Texture(const std::filesystem::path &fn, bool use_alpha, bool yflip = false);
 	Texture(int w, int h, int fmt);
 	Texture();
 	virtual ~Texture();
 
 	// Load this texture from a file (if it hasn't been done already)
-	bool loadFromFile(const char *fn, bool use_alpha, bool yflip);
-
+	bool loadFromFile(const std::filesystem::path &fn, bool use_alpha, bool yflip);
+	
 	// Submit one of the poly headers
 	void sendHdr(int list);
 

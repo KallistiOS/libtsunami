@@ -9,8 +9,9 @@
 #ifndef __TSUNAMI_GENMENU_H
 #define __TSUNAMI_GENMENU_H
 
-#include "refcnt.h"
 #include "drawables/scene.h"
+
+#include <filesystem>
 
 /* This defines a fully generic menu system. Basically what you do is
    derive from this class and then implement the constructor (which adds
@@ -116,7 +117,7 @@ protected:
 	// Call this method to setup a background song to be played during the
 	// menu. You should do this before calling doMenu(). The song will
 	// be started with the menu and faded out on exit.
-	virtual void setBgm(const char * fn, bool cache = false);
+	virtual void setBgm(const std::filesystem::path &fn, bool cache = false);
 
 	// This method should be called any time the user does something that
 	// would cancel the menu's timeout.
@@ -138,7 +139,7 @@ protected:
 
 	// Name of the song we'll use for background music (if any). If this
 	// is an empty string, we'll not use a song.
-	char 		m_bgmFn[256];
+	std::filesystem::path	m_bgmFn;
 	bool		m_usebgm, m_cachebgm;
 
 	// Background plane color
@@ -156,7 +157,7 @@ protected:
 	uint32		m_timeout;
 
 	// Our scene object
-	RefPtr<Scene>	m_scene;
+	std::shared_ptr<Scene>	m_scene;
 
 	// Allow one "main" controller in each port. We'll track what's in
 	// each port and what buttons are currently held.

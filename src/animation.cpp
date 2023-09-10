@@ -9,36 +9,41 @@
 #include "animation.h"
 #include "drawable.h"
 
+#include <algorithm>
+
 Animation::Animation() {
 }
 
 Animation::~Animation() {
 }
 
-void Animation::triggerAdd(Trigger *t) {
-	m_triggers.insertHead(t);
+void Animation::triggerAdd(std::shared_ptr<Trigger> t) {
+	m_triggers.push_front(t);
 }
 
 void Animation::triggerRemove(Trigger *tr) {
-	m_triggers.del(tr);
+	auto is_ptr = [=](std::shared_ptr<Trigger> sp) { return sp.get() == tr; };
+	auto it = std::find_if(m_triggers.begin(), m_triggers.end(), is_ptr);
+
+	if (it != m_triggers.end())
+		m_triggers.erase(it);
 }
 
 void Animation::triggerRemoveAll() {
-	m_triggers.delAll();
+	m_triggers.clear();
 }
 
 void Animation::nextFrame(Drawable *t) {
 }
 
 void Animation::trigger(Drawable *d) {
-	// Call each active trigger
-	ListNode<Trigger> *t, *tn;
+	/* Duplicate the array of triggers. This makes the "for" loop much
+	 * easier as we don't have to handle it->trigger() calling
+	 * triggerRemove(). */
+	auto triggers = m_triggers;
 
-	t = m_triggers.getHead();
-	while (t) {
-		tn = t->getNext();
-		(*t)->trigger(d, this);
-		t = tn;
+	for (auto it: m_triggers) {
+		it->trigger(d, this);
 	}
 }
 

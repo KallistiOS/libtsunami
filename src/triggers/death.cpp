@@ -9,7 +9,7 @@
 #include "triggers/death.h"
 #include "drawable.h"
 
-Death::Death(Drawable * target) {
+Death::Death(std::shared_ptr<Drawable> target) {
 	m_target = target;
 }
 

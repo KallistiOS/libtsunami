@@ -34,8 +34,9 @@
 #include <dc/maple/controller.h>
 #include <dc/maple/keyboard.h>
 
+#include <cstdio>
+
 GenericMenu::GenericMenu() {
-	m_bgmFn[0] = 0;
 	m_usebgm = false;
 	m_cachebgm = false;
 
@@ -47,7 +48,7 @@ GenericMenu::GenericMenu() {
 	m_totime = 0;
 	m_timeout = 45;
 
-	m_scene = new Scene();
+	m_scene = std::make_shared<Scene>();
 
 	m_contTypes[0] = m_contTypes[1] = m_contTypes[2] = m_contTypes[3] = 0;
 	m_contBtns[0] = m_contBtns[1] = m_contBtns[2] = m_contBtns[3] = 0;
@@ -398,9 +399,9 @@ void GenericMenu::quitNow() {
 	m_exitSpeed = 0.0f;
 }
 
-void GenericMenu::setBgm(const char * fn, bool cache) {
-	if (fn) {
-		strcpy(m_bgmFn, fn);
+void GenericMenu::setBgm(const std::filesystem::path &fn, bool cache) {
+	if (!fn.empty()) {
+		m_bgmFn = fn;
 		m_usebgm = true;
 	} else
 		m_usebgm = false;
