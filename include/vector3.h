@@ -10,7 +10,7 @@
 #ifndef __TSUNAMI_VECTOR3_H
 #define __TSUNAMI_VECTOR3_H
 
-#include <kos/vector.h>
+#include <dc/vector.h>
 #include <assert.h>
 
 #ifdef _arch_dreamcast
