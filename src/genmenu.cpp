@@ -174,7 +174,7 @@ void GenericMenu::controlPerFrame() {
 
 	// Check for timeouts and send a message if we have one. In case the
 	// subclass isn't paying attention, reset the counter as well.
-	uint32 s;
+	uint32_t s;
 	timer_ms_gettime(&s, NULL);
 	if ((s - m_totime) > m_timeout) {
 		resetTimeout();
@@ -210,10 +210,10 @@ void GenericMenu::scanController(int p, bool initial) {
 	// Get the status of the controller
 	maple_device_t * dev = maple_enum_dev(p, 0);
 	cont_state_t * state = (cont_state_t *)maple_dev_status(dev);
-	uint32 btns = state->buttons;
+	uint32_t btns = state->buttons;
 
 	// Convert the buttons to key bits
-	uint32 keys = 0;
+	uint32_t keys = 0;
 	if ((btns & (CONT_A | CONT_B | CONT_X | CONT_Y | CONT_START)) ==
 		(CONT_A | CONT_B | CONT_X | CONT_Y | CONT_START))
 	{
@@ -252,10 +252,10 @@ void GenericMenu::scanKeyboard(int p, bool initial) {
 	// Get the status of the keyboard
 	maple_device_t * dev = maple_enum_dev(p, 0);
 	kbd_state_t * state = (kbd_state_t *)maple_dev_status(dev);
-	uint8 * kb = state->matrix;
+	uint8_t * kb = state->matrix;
 
 	// Convert the buttons to key bits
-	uint32 keys = 0;
+	uint32_t keys = 0;
 	if (kb[KBD_KEY_LEFT])
 		keys |= 1 << Event::KeyLeft;
 	if (kb[KBD_KEY_UP])
@@ -289,14 +289,14 @@ void GenericMenu::scanKeyboard(int p, bool initial) {
 		scanCommon(p, keys, state);
 }
 
-void GenericMenu::scanCommon(int p, uint32 keys, void * rawState) {
+void GenericMenu::scanCommon(int p, uint32_t keys, void * rawState) {
 	bool reset = false;
-	uint32 called = 0;
+	uint32_t called = 0;
 
 	// Anything we're doing autorepeat for, call automatically
 	if (m_autoRep & m_contBtns[p]) {
 		// Find the pressed buttons
-		uint32 btns = m_contBtns[p] & m_autoRep;
+		uint32_t btns = m_contBtns[p] & m_autoRep;
 		for (int i=0; i<Event::KeySentinel; i++) {
 			if (btns & (1 << i)) {
 				Event evt(Event::EvtKeypress);
@@ -317,7 +317,7 @@ void GenericMenu::scanCommon(int p, uint32 keys, void * rawState) {
 	if (keys ^ m_contBtns[p]) {
 		// Find the pressed buttons
 		for (int i=0; i<Event::KeySentinel; i++) {
-			uint32 mask = 1 << i;
+			uint32_t mask = 1 << i;
 			if ((keys & mask) && !(m_contBtns[p] & mask) && !(called & mask)) {
 				Event evt(Event::EvtKeypress);
 				evt.port = p;
@@ -412,7 +412,7 @@ void GenericMenu::resetTimeout() {
 	timer_ms_gettime(&m_totime, NULL);
 }
 
-void GenericMenu::setTimeout(uint32 v) {
+void GenericMenu::setTimeout(uint32_t v) {
 	m_timeout = v;
 }
 

@@ -99,7 +99,7 @@ protected:
 	// Called by controlPerFrame to process each type of device we support
 	void scanController(int p, bool initial = false);
 	void scanKeyboard(int p, bool initial = false);
-	void scanCommon(int p, uint32 newKeys, void *rawState);
+	void scanCommon(int p, uint32_t newKeys, void *rawState);
 
 	// Called any time an "input event" is detected. You should override
 	// this to handle debounced key-style inputs and peripheral add/remove.
@@ -122,7 +122,7 @@ protected:
 	// This method should be called any time the user does something that
 	// would cancel the menu's timeout.
 	virtual void resetTimeout();
-	virtual void setTimeout(uint32 v);
+	virtual void setTimeout(uint32_t v);
 
 	// Set background colors
 	virtual void setBg(float r, float g, float b);
@@ -151,21 +151,21 @@ protected:
 	float		m_exitSpeed;
 
 	// When was the last time the user did something?
-	uint32		m_totime;
+	uint32_t		m_totime;
 
 	// How many seconds should we allow before triggering a timeout?
-	uint32		m_timeout;
+	uint32_t		m_timeout;
 
 	// Our scene object
 	std::shared_ptr<Scene>	m_scene;
 
 	// Allow one "main" controller in each port. We'll track what's in
 	// each port and what buttons are currently held.
-	uint32		m_contTypes[4];
-	uint32		m_contBtns[4];
+	uint32_t		m_contTypes[4];
+	uint32_t		m_contBtns[4];
 
 	// Key autorepeat mask
-	uint32		m_autoRep;
+	uint32_t		m_autoRep;
 
 	// Post-doMenu delay in case sounds are still playing
 	int		m_postDelay;
