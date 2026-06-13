@@ -67,7 +67,7 @@ struct Color {
 		return Color(a-o.a, r-o.r, g-o.g, b-o.b);
 	}
 
-	operator uint32() const {
+	operator uint32_t() const {
 		float ta, tr, tg, tb;
 		ta = (a < 0.0f) ? 0.0f : (a > 1.0f) ? 1.0f : a;
 		tr = (r < 0.0f) ? 0.0f : (r > 1.0f) ? 1.0f : r;
